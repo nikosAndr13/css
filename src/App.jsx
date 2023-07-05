@@ -20,7 +20,7 @@ function App() {
     } else {
       if (currentIndex === images.length - 1) {
         newIndex = 0;
-      } else if (currentIndex >= 3) {
+      } else if (currentIndex > 3) {
         newIndex = currentIndex + 1;
       } else {
         newIndex = currentIndex + 1;
