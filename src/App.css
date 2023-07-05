@@ -1,0 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.iphones {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+}
+
+.blur {
+  filter: blur(8px);
+}
+
+.bottom {
+  top: 100px;
+  left: 420px;
+  scale: 0.8;
+}
+
+.top {
+  top: -350px;
+  scale: 0.8;
+  left: 420px;
+}
+
+.primary-img {
+  scale: 1.5;
+  top: -150px;
+}
+
+.bottomToTop {
+  animation: bottomToTop 0.5s linear 1;
+}
+.revBottomToTop {
+  animation: bottomToTop 0.5s reverse 1;
+}
+.topToCenter {
+  animation: topToCenter 0.5s linear 1;
+}
+.revTopToCenter {
+  animation: topToCenter 0.5s reverse 1;
+}
+.centerToBottom {
+  animation: centerToBottom 0.5s linear 1;
+}
+.revCenterToBottom {
+  animation: centerToBottom 0.5s reverse 1;
+}
+
+@keyframes bottomToTop {
+  0% {
+    top: 100px;
+    left: 420px;
+    scale: 0.8;
+    filter: blur(8px);
+  }
+  100% {
+    top: -350px;
+    left: 420px;
+    scale: 0.8;
+    filter: blur(8px);
+  }
+}
+@keyframes revBottomToTop {
+  0% {
+    top: -350px;
+    left: 420px;
+    scale: 0.8;
+    filter: blur(8px);
+  }
+  100% {
+    top: 100px;
+    left: 420px;
+    scale: 0.8;
+    filter: blur(8px);
+  }
+}
+
+@keyframes topToCenter {
+  0% {
+    top: -350px;
+    left: 420px;
+    scale: 0.8;
+    filter: blur(8px);
+  }
+  100% {
+    top: -150px;
+    left: 0;
+    scale: 1.5;
+    filter: blur(2px);
+  }
+}
+
+@keyframes centerToBottom {
+  0% {
+    top: -150px;
+    left: 0;
+    scale: 1.5;
+    filter: blur(2px);
+  }
+  100% {
+    top: 100px;
+    left: 420px;
+    scale: 0.8;
+    filter: blur(8px);
+  }
+}
+
+.light {
+  background: radial-gradient(
+    circle,
+    rgb(134, 129, 132) 30%,
+    rgb(14, 16, 13) 100%
+  );
+}
+.green {
+  background: radial-gradient(
+    circle,
+    rgb(180, 145, 173) 30%,
+    rgba(197, 15, 197, 0.812) 100%
+  );
+}
+.blue {
+  background: radial-gradient(
+    circle,
+    rgb(163, 136, 175) 30%,
+    rgb(130, 7, 196) 100%
+  );
+}
