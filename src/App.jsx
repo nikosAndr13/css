@@ -3,34 +3,32 @@ import { useState } from "react";
 import Iphone14 from "./assets/iphone14pro-removebg-preview.png";
 
 function App() {
-  const images = ["1", "2", "3"];
-  const images1 = ["4", "5", "6"];
+  const images = ["1", "2", "3", "4", "5", "6"];
   const [primaryImage, setPrimaryImage] = useState("1");
 
-  const changeColor = () => {
+  const changeColor = (reverse = false) => {
     const currentIndex = images.indexOf(primaryImage);
-    const currentIndex1 = images1.indexOf(primaryImage);
-
-    let nextIndex;
-    if (currentIndex !== -1) {
-      nextIndex = (currentIndex + 1) % images.length;
-    } else if (currentIndex1 !== -1) {
-      nextIndex = (currentIndex1 + 1) % images1.length;
+    let newIndex;
+    if (reverse) {
+      if (currentIndex === 0) {
+        newIndex = images.length - 1;
+      } else if (currentIndex > 3) {
+        newIndex = currentIndex - 1;
+      } else {
+        newIndex = currentIndex + 1;
+      }
     } else {
-      nextIndex = 0;
+      if (currentIndex === images.length - 1) {
+        newIndex = 0;
+      } else if (currentIndex >= 3) {
+        newIndex = currentIndex + 1;
+      } else {
+        newIndex = currentIndex + 1;
+      }
     }
-
-    let nextColor;
-    if (currentIndex !== -1) {
-      nextColor = images[nextIndex];
-    } else if (currentIndex1 !== -1) {
-      nextColor = images1[nextIndex];
-    } else {
-      nextColor = "1";
-    }
-
-    setPrimaryImage(nextColor);
+    setPrimaryImage(images[newIndex]);
   };
+
   return (
     <>
       <div
@@ -63,14 +61,35 @@ function App() {
           >
             Move carousel + 1
           </button>
-          <button
-            style={{ padding: "20px" }}
-            onClick={() => {
-              changeColor();
-            }}
-          >
-            Move carousel - 1
-          </button>
+          <div style={{ display: "flex", gap: "65px", color: "white" }}>
+            <p
+              style={{
+                opacity: `${
+                  primaryImage === "1" || primaryImage === "4" ? "1" : "0.2"
+                }`,
+              }}
+            >
+              1
+            </p>
+            <p
+              style={{
+                opacity: `${
+                  primaryImage === "2" || primaryImage === "5" ? "1" : "0.2"
+                }`,
+              }}
+            >
+              2
+            </p>
+            <p
+              style={{
+                opacity: `${
+                  primaryImage === "3" || primaryImage === "6" ? "1" : "0.2"
+                }`,
+              }}
+            >
+              3
+            </p>
+          </div>
         </div>
         <div style={{ position: "relative", width: "30%" }}>
           <img
